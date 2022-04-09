@@ -1,0 +1,10 @@
+package com.example.food4good;
+
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+
+// new since Glide v4
+@GlideModule
+public final class MyAppGlideModule extends AppGlideModule {
+    // leave empty for now
+}

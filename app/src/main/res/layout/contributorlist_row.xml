@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_marginTop="0dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="12dp"
+    app:cardPreventCornerOverlap="true"
+
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="180dp"
+
+        android:padding="6dip">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+
+            android:layout_marginRight="2dip"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_launcher_background" />
+
+
+        <TextView
+            android:id="@+id/providerName"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignTop="@id/icon"
+            android:textColor="@color/black"
+
+
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginEnd="30dp"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@id/icon"
+
+
+            android:text="315 Home Kitchen"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/providerAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
+            android:layout_below="@+id/providerName"
+            android:layout_marginLeft="10dp"
+
+
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/icon"
+            android:singleLine="true"
+            android:text="2700 Ellendale Pl, Los Angeles"
+            android:textSize="15sp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/providerAddress"
+            android:layout_alignBottom="@id/icon"
+            android:layout_toEndOf="@id/icon"
+            android:layout_marginTop="20dp"
+            android:weightSum="10"
+
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="30dp"
+                android:src="@drawable/location_symbol" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/providerAddress"
+                android:layout_marginTop="10dp"
+
+                android:layout_toRightOf="@id/icon"
+
+
+
+                android:singleLine="true"
+                android:text="9.8 miles"
+                android:layout_weight="5"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:id="@+id/redCircle"
+
+                android:layout_height="30dp"
+                android:src="@drawable/red_circle" />
+            <ImageView
+                android:layout_width="35dp"
+                android:id="@+id/greenCircle"
+
+                android:layout_height="30dp"
+                android:src="@drawable/green_circle" />
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>
