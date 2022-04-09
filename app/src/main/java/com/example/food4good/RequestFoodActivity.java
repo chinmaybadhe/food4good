@@ -56,8 +56,6 @@ public class RequestFoodActivity extends AppCompatActivity {
             id= extras.getString("Id");
             latitude=extras.getString("latitude");
             longitude=extras.getString("longitude");
-
-
         }
         System.out.println(veg_Count);
         imgView=findViewById(R.id.image);
@@ -147,12 +145,6 @@ public class RequestFoodActivity extends AppCompatActivity {
 //                                                Log.w(TAG, "Error writing document", e);
                                             }
                                         });
-
-
-
-
-
-
 
 
                             }})

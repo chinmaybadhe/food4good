@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.186" />
+        <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/drawable/back.xml" value="0.181" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/drawable/custom.xml" value="0.186" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/drawable/custom_switch.xml" value="0.186" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/drawable/ellendale.xml" value="0.2135" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/layout/activity_contributor_list.xml" value="0.25" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/layout/activity_otpactivity.xml" value="0.24094202898550723" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/layout/activity_request_food.xml" value="0.25" />
+        <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/layout/activity_requester_login.xml" value="0.24094202898550723" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/layout/contributorlist_row.xml" value="0.25" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/mipmap-anydpi-v26/ellendale2.xml" value="0.2135" />
         <entry key="..\:/Hackathon/Food4good/needy/food4good_needy/app/src/main/res/mipmap-anydpi-v26/ellendale2_round.xml" value="0.209" />
