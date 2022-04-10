@@ -10,12 +10,14 @@
     <TextView
         android:id="@+id/textview"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginLeft="10dp"
-        android:padding="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="110dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp"
+        android:background="#3b5998"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         android:text="Find nearest food providers according to your current location"
-        android:textColor="@color/black"
+        android:textColor="#EEEADE"
         android:textSize="17sp"></TextView>
 
 

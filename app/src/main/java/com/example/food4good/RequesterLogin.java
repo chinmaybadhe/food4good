@@ -71,7 +71,7 @@ public class RequesterLogin extends AppCompatActivity {
                         myEdit.putString("phoneNumber",r.getPhoneNumber() );
                         myEdit.commit();
 
-                        Intent intent = new Intent(RequesterLogin.this, ContributorListActivity.class);
+                        Intent intent = new Intent(RequesterLogin.this, DashboardActivity.class);
                         startActivity(intent);
                         finish();
 

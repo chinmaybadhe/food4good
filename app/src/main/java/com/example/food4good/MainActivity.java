@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent=new Intent(getApplicationContext(), ContributorListActivity.class);
+                    Intent intent=new Intent(getApplicationContext(), DashboardActivity.class);
                     startActivity(intent);
                     finish();
                 }

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class RequestFoodActivity extends AppCompatActivity {
@@ -33,6 +36,7 @@ public class RequestFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_food);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.blue));
         Bundle extras = getIntent().getExtras();
         String photoUrl="";
         String providerName="";
@@ -74,7 +78,9 @@ public class RequestFoodActivity extends AppCompatActivity {
         String finalLatitude = latitude;
         String finalLongitude = longitude;
         String finalId = id;
-        String otp=UUID.randomUUID().toString().substring(0,4);;
+        Random r = new Random();
+        int i1 = r.nextInt(8999) + 1000;
+        String otp=i1+"";;
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

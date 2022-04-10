@@ -183,8 +183,9 @@
         android:layout_marginTop="30dp"
         android:id="@+id/request"
 
-        android:background="#000000"
-        android:backgroundTint="#090808"
+
+        android:backgroundTint="#3b5998"
+        android:textColor="#EEEADE"
         android:text="REQUEST MEAL"></Button>
 
     <TextView
