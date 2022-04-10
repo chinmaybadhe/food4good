@@ -97,6 +97,7 @@ public class RequestFoodActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(simpleSwitch.isChecked()==false && Integer.parseInt(finalNvegCount)==0){
                     Toast.makeText(RequestFoodActivity.this, "Sorry! Non-Veg meals are not available at this time", Toast.LENGTH_SHORT).show();
                     return;
@@ -105,6 +106,7 @@ public class RequestFoodActivity extends AppCompatActivity {
                     Toast.makeText(RequestFoodActivity.this, "Sorry! Veg meals are not available at this time", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 new AlertDialog.Builder(RequestFoodActivity.this)
                         .setTitle("Confirm order")
                         .setMessage("Do want to confirm this request?")
@@ -126,8 +128,16 @@ public class RequestFoodActivity extends AppCompatActivity {
                                 order.setR_id(requesterPhone);
                                 order.setStatus("open");
                                 order.setO_id(order_id);
-                                order.setNv_qty(nonvegQuantity);
-                                order.setV_qty(vegQuantity);
+                                if(simpleSwitch.isChecked()){
+                                    order.setNv_qty(0);
+                                    order.setV_qty(1);
+                                }
+                                else{
+                                    order.setNv_qty(1);
+                                    order.setV_qty(0);
+
+                                }
+
                                 order.setOtp(otp);
                                 conRef.document(order_id)
                                         .set(order)

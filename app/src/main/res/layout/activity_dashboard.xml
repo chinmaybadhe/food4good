@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="Welcome to Food4Good!"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_gravity="center|bottom"
+        android:gravity="bottom|center"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:background="@drawable/dashboardbackground"
         android:padding="20dp"
-        android:textSize="32sp"
+        android:textSize="29sp"
         android:layout_weight="6"></TextView>
     <TextView
         android:layout_width="match_parent"

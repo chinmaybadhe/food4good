@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="10"
+
     tools:context=".ContributorListActivity">
 
     <TextView
         android:id="@+id/textview"
+        android:layout_weight="1.3"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
+
         android:paddingLeft="10dp"
-        android:paddingTop="30dp"
+        android:paddingTop="20dp"
         android:background="#3b5998"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:text="Find nearest food providers according to your current location"
         android:textColor="#EEEADE"
-        android:textSize="17sp"></TextView>
+        android:textSize="17sp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_below="@id/textview"
-        android:layout_height="match_parent"
+        android:layout_weight="8.7"
+        android:background="#FAFAFA"
+
+        android:layout_height="0dp"
         android:id="@+id/contributorListRecycleView"/>
-</RelativeLayout>
+</LinearLayout>

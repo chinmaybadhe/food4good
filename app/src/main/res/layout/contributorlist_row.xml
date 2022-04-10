@@ -2,20 +2,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="180dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
     android:layout_marginTop="0dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="7dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
     app:cardElevation="10dp"
-    android:background="#FAFAFA"
-    android:backgroundTint="#FAFAFA"
+    android:padding="8dp"
+
     app:cardMaxElevation="12dp"
     app:cardPreventCornerOverlap="true"
 
-    app:cardUseCompatPadding="true">
+   >
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -56,16 +57,16 @@
             android:id="@+id/providerAddress"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-
             android:layout_below="@+id/providerName"
+
             android:layout_marginLeft="10dp"
-
-
             android:layout_marginTop="10dp"
+
+
             android:layout_toRightOf="@id/icon"
             android:singleLine="true"
             android:text="2700 Ellendale Pl, Los Angeles"
+            android:textColor="@color/black"
             android:textSize="15sp" />
 
 
