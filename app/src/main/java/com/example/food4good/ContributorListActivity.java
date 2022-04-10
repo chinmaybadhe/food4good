@@ -337,7 +337,7 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
         holder.cvContributorOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "Time pass", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ctx, "Time pass", Toast.LENGTH_SHORT).show();
                 ////        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
         Context context = view.getContext();
         Intent intent = new Intent(context , RequestFoodActivity.class);
