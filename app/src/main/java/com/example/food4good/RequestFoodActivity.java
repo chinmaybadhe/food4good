@@ -150,6 +150,7 @@ public class RequestFoodActivity extends AppCompatActivity {
                                                 Context context = view.getContext();
                                                 Intent intent = new Intent(context , OTPActivity.class);
                                                 intent.putExtra("otp",otp);
+                                                intent.putExtra("o_id",order_id);
                                                 finish();
                                                 startActivity(intent);
                                                 Toast.makeText(RequestFoodActivity.this, "Request placed!", Toast.LENGTH_SHORT).show();
