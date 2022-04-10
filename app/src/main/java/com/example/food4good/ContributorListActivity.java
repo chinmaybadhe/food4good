@@ -13,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -135,7 +136,16 @@ public class ContributorListActivity extends AppCompatActivity implements MyRecy
 
         Log.d("Chinmay","Inside on start");
 
+        SharedPreferences sh = getSharedPreferences("Requester", MODE_PRIVATE);
+        String name = sh.getString("name", "");
+        String phoneNumber = sh.getString("phoneNumber", "");
+        longitude = sh.getString("longitude","");
+        latitude = sh.getString("latitude","");
 
+        Log.d("ContributorList",name);
+        Log.d("ContributorList",phoneNumber);
+        Log.d("ContributorList",longitude);
+        Log.d("ContributorList",latitude);
 
         conRefFood.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
