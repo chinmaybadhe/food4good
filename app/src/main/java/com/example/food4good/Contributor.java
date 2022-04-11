@@ -1,6 +1,6 @@
 package com.example.food4good;
 
-public class Contributor {
+public class Contributor implements Comparable<Contributor> {
     String id;
     String name;
     String longitude;
@@ -98,6 +98,12 @@ public class Contributor {
     }
     public int getRewards(){
         return rewards;
+    }
+
+
+    @Override
+    public int compareTo(Contributor contributor) {
+        return 0;
     }
 }
 

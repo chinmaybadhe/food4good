@@ -32,6 +32,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -46,14 +48,19 @@ import com.google.type.LatLngOrBuilder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ContributorListActivity extends AppCompatActivity{
 
     MyRecyclerViewAdapter adapter;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference conRef = db.collection("Contributor");
+
     //MyRecyclerViewAdapter.ItemClickListener ctx;
     private static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
@@ -62,7 +69,7 @@ public class ContributorListActivity extends AppCompatActivity{
     Double distance;
     Location mylocation = new Location("");
     Location dest_location = new Location("");
-    CollectionReference conRef = db.collection("Contributor");
+    //CollectionReference conRef = db.collection("Contributor");
     CollectionReference conRefFood = db.collection("AvailabilityFood");
     ArrayList<Contributor> clist;
     ArrayList<AvailableFood> olist;
@@ -204,7 +211,7 @@ public class ContributorListActivity extends AppCompatActivity{
         Log.d("ContributorList",longitude);
         Log.d("ContributorList",latitude);
 
-        MyRecyclerViewAdapter afAdapter = new MyRecyclerViewAdapter(alAF,ContributorListActivity.this);
+        MyRecyclerViewAdapter afAdapter = new MyRecyclerViewAdapter(alAF,ContributorListActivity.this, mylocation);
         contributorListRecycleView = findViewById(R.id.contributorListRecycleView);
         contributorListRecycleView.setAdapter(afAdapter);
         contributorListRecycleView.setLayoutManager(new LinearLayoutManager(ContributorListActivity.this));
@@ -222,7 +229,58 @@ public class ContributorListActivity extends AppCompatActivity{
                     for(QueryDocumentSnapshot documentSnapshot: value)
                     {
                         AvailableFood af = documentSnapshot.toObject(AvailableFood.class);
+                        Log.d("Sort",af.getCid());
                         alAF.add(af);
+//                        Collections.sort(alAF, new Comparator<AvailableFood>() {
+//                            @Override
+//                            public int compare(AvailableFood availableFood, AvailableFood t1) {
+//                                final Contributor[] c1 = new Contributor[1];
+//                                final Contributor[] c2 = new Contributor[1];
+//
+//                                conRef.document(availableFood.getCid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                                    @Override
+//                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                                        Contributor c = documentSnapshot.toObject(Contributor.class);
+//                                        c1[0] = c;
+//                                    }
+//                                }).addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull Exception e) {
+//                                        Toast.makeText(ContributorListActivity.this, "Compare Fetch failed!", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//
+//                                conRef.document(t1.getCid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull  Task<DocumentSnapshot> task) {
+//                                        Contributor c = task.getResult().toObject(Contributor.class);
+//                                        c2[0] = c;
+//                                    }
+//                                });
+//
+//                                double distance1 = 0.0;
+//                                double distance2 = 0.0;
+//                                if(c1[0]!=null) {
+//                                    //Location from 1
+//                                    Location dest_location1 = new Location("");
+//                                    dest_location1.setLatitude(Double.parseDouble(c1[0].getLatitude()));
+//                                    dest_location1.setLongitude(Double.parseDouble(c1[0].getLongitude()));
+//                                    distance1 = dest_location1.distanceTo(mylocation);//in meters
+//                                    distance1 = distance1 / 1000;
+//                                }
+//                                if(c2[0]!=null) {
+//                                    //Location from 2
+//                                    Location dest_location2 = new Location("");
+//                                    dest_location2.setLatitude(Double.parseDouble(c2[0].getLatitude()));
+//                                    dest_location2.setLongitude(Double.parseDouble(c2[0].getLongitude()));
+//                                    distance2 = dest_location2.distanceTo(mylocation);//in meters
+//                                    distance2 = distance2 / 1000;
+//                                }
+//                                Toast.makeText(ContributorListActivity.this, distance1+" "+distance2+" "+alAF.size()+" "+availableFood.getCid(), Toast.LENGTH_SHORT).show();
+//
+//                                return (int)((distance1-distance2)*100000);
+//                            }
+//                        });
                         afAdapter.notifyDataSetChanged();
                     }
                 }
@@ -271,9 +329,10 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
 
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(ArrayList<AvailableFood> alAF, Context context) {
+    MyRecyclerViewAdapter(ArrayList<AvailableFood> alAF, Context context, Location location) {
         this.alAF = alAF;
         ctx=context;
+        myLoc = location;
     }
 
     // inflates the row layout from xml when needed
@@ -295,6 +354,8 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         AvailableFood af = alAF.get(position);
+        //TreeMap<Double,Contributor> tm = new TreeMap<>();
+
 
         String c_id = af.getCid();
         final Contributor[] outer_c = new Contributor[1];
@@ -305,14 +366,15 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
                 {
                     Contributor c = value.toObject(Contributor.class);
                     outer_c[0] = c;
-                    holder.nameView.setText(c.getName());
+                   holder.nameView.setText(c.getName());
                     holder.addressView.setText(c.getAddress());
                     dest_location.setLatitude(Double.parseDouble(c.getLatitude()));
                     dest_location.setLongitude(Double.parseDouble(c.getLongitude()));
-                    float distance = dest_location.distanceTo(myLoc);//in meters
+                    double distance = dest_location.distanceTo(myLoc);//in meters
                     distance=distance/1000;
-
-                    holder.distanceView.setText(distance+ " in mi.");
+                    //tm.put(distance,c);
+                    String si = (distance+"").substring(0,4);
+                   holder.distanceView.setText(si+ " mi.");
 
                     Glide.with(ctx)
                         .load(c.getPhotoUrl())
@@ -392,6 +454,22 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
 //
 //        }
 
+//        for (Map.Entry <Double, Contributor> entry : tm.entrySet()){
+//            Contributor c = entry.getValue();
+//            //outer_c[0] = c;
+//            holder.nameView.setText(c.getName());
+//            holder.addressView.setText(c.getAddress());
+//            dest_location.setLatitude(Double.parseDouble(c.getLatitude()));
+//            dest_location.setLongitude(Double.parseDouble(c.getLongitude()));
+//            holder.distanceView.setText(entry.getKey()+ " in mi.");
+//            Glide.with(ctx)
+//                    .load(c.getPhotoUrl())
+//                    .centerCrop()
+//                    .into(holder.imgView);
+//
+//        }
+
+
     }
 
     // total number of rows
@@ -399,6 +477,8 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
     public int getItemCount() {
         return alAF.size();
     }
+
+
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameView;
@@ -426,6 +506,7 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.V
 
 
     }
+
 
 
 }

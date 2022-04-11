@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="15dp"
             android:textColor="#8b0000"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:textColor="#8b0000"
 
             android:layout_marginTop="25dp"
