@@ -1,1 +1,26 @@
-# food4good_needy
+**Inspiration**
+The amount of food wasted in the United States is around staggering 220 pounds per person per year which equates to 30-40% of the entire food supply! Even then, on the flip side, 1 in 6 Americans are insecure about food and 42 million Americans face hunger everyday. The irony in these statistics really made us scratch our heads and think about how this imbalance can be reduced.
+
+The more we thought about it, the more we realized how technology could play a meaningful part in solving this problem. Since we were talking about serving the under-privileged class, we were aware about the technology constraints we could face, as majority of the underprivileged population do not have access to any technologically sophisticated item other than a mere cell phone. We found through our research, that more than 80 percent of the underprivileged population had access to cellphones and thus, we decided that an android application would be the best way in going forward.
+
+The problem at hand was simple. We have excess food going waste everyday on one side, and on the other side, we have people who are in real need of this food for their subsistence. We just needed to find a way to connect them. Enter Food4Good, an app designed to connect those having excess food (be it any individual, restaurant or an organization) to those who are in need of it. Our app provides a platform for these individuals, restaurants and organizations (a.k.a. food-providers) , where they can broadcast about the food/meals they want to give away or donate. The people who need this food can see these listings on the app, sorted according to the nearest food provider, and can create requests for these meals. After they have successfully created a request, they can then proceed to the location of the food provider and receive that food.
+
+But why will any individual or a business/organization take any extra efforts to donate their spare food? Our app provides incentives to any food-provider, by giving them reward points after donating every meal. These reward points can then in turn be redeemed for vouchers, gift cards or discount coupons from known brands. Hence, it is a win-win situation where the food, which was bound to get wasted, now reaches people who are desperately in need of it. Also, the food providers are rewarded for every meal donated, and thus encouraged to donate more.
+
+**What it does**
+We have two apps, for contributors (Food Providers) and for requesters. Any individual, restaurant or organization can sign up to our app who would like to donate food. Whenever someone has any excess food they'd like to donate, they can post it up on our app, with the location from where the food can be picked up, and the quantity of food they have made available for donation. In the other module, someone who needs food can see all the nearest locations from where they can get the food and navigate to it. A one-time password will be generated, on creating a request for the food, to ensure that the food gets collected by the right beneficiary. Our platform also incentivizes the contributors where the contributors get some points on every meal donated and they can redeem those points. to get rewards.
+
+**How we built it**
+We wanted to build a robust app where ease of use is the key. We built two sister android app with java using Android's material design to make the UI simple and intuitive. We used firebase to store our data which is secure and fast, making data read and write quicker.
+
+**Challenges we ran into**
+The idea itself is vast and its scope can be expanded to help and include more people in it. So, we needed to limit the scope of this project to the features we could implement in the given time frame. We faced some difficulties while creating the test data and testing the functionality as it deals with real time locations. We had to learn about firebase as we were new to it and some new android UI features and designs to make the interface simpler.
+
+**Accomplishments that we're proud of**
+We successfully made apps which enable those in need of food to find places which are willing to donate excess food and many individuals and restaurants to save food from going to waste. We were able to implement all the functional aspects in the given time to make a fully functional application. It has been a challenging yet immensely fulfilling 36hrs of coding and we're proud to have something to show we've put all our effort into.
+
+**What we learned**
+We learned how to connect different applications together through cloud and seamlessly transfer data between them. While researching about the topic, we realized how severe is the problem of food insecurity , and how drastic is the need to address this issue as soon as possible.
+
+**What's next for Food4Good**
+The scope of the project can be expanded to cover people from different strata and different regions. NGOs can be onboarded to the platform, from where they can collect all the excess food and deliver it to different locations like homeless shelters, thus solving the problem of delivery. By analyzing the pattern of the requests made to collect the food, according to the requestor's locations , we can determine the regions and the areas where there might be a dearth of food resources, which will help the authorities target those regions specifically in addressing food insecurity.
